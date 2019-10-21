@@ -1,0 +1,54 @@
+.centering {
+	margin: auto;
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.centering-row {
+	margin: auto;
+	flex-direction: row;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.lim {
+	height: 500px;
+	width: auto;
+	background-color: azure;
+}
+
+.list {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 40px auto;
+}
+
+.box {
+	padding: 20px;
+	margin: 10px;
+}
+
+ul {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style-type: none;
+	display: inline-block;
+	padding-right: 10%;
+	width: auto;
+	margin-right: 0.5%;
+	padding-left: 0;
+	margin-left: 0;
+}
+.editor {
+	resize: none;
+	width: 100px;
+}
+
+.form-group {
+	width: 500px;
+}
