@@ -6,7 +6,7 @@
         </div>
     <?php } ?>
     <div class="centering-row mt-3">
-        <form action="" method="post" class="form-inline my-10 my-lg-2">
+        <form action="" method="POST" class="form-inline my-10 my-lg-2">
             <div class="input-group">
                 <input class="form-control mr-sm-2" type="text" placeholder="Cari Artikel" id="nama" name="key">
             </div>

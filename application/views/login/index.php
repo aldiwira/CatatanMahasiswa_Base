@@ -8,12 +8,33 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
         <link rel="stylesheet" href="<?= base_url() ?>assets/lib/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="<?= base_url() ?>assets/css/login.css" />
+        <style type="text/css">
+        @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap');
+		body{
+			background: #c7c7c7;
+			background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+			color: white;
+			transition: all 5s;
+        }
+        </style>
     </head>
     <body>
         <div>
             <?= $content ?>
         </div>
 
+        <script type="text/javascript">
+            $(".txtb input").on("focus",function(){
+                $(this).addClass("focus");
+            });
+
+            $(".txtb input").on("blur",function(){
+                if($(this).val() == "")
+                $(this).removeClass("focus");
+            });
+        </script>
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

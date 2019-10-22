@@ -1,5 +1,4 @@
-<div class="container">
-    <div class="centering">
+<div class="centering">
         <div class="font-weight-bold mt-3">
             <h2>Buat Quote Baru</h2>
         </div>
@@ -10,6 +9,10 @@
             </div>
         <?php endif; ?>
             <form action="" method="post">
+                <div class="form-group">
+                    <label for="pembuat">Pembuat</label>
+                    <input type="text" value="<?= $pembuat?>" class="form-control" id="pembuat" name="pembuat">
+                </div>
                 <div class="form-group">
                     <label for="tanggal">Tanggal Artikel</label>
                     <input type="text" readonly="readonly" value="<?= date('d F Y')?>" class="form-control" id="tanggal" name="tanggal">
@@ -31,4 +34,3 @@
             </form>
         </div>
     </div>
-</div>

@@ -1,0 +1,82 @@
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-family: montserrat;
+	box-sizing: border-box;
+}
+.centering {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.header {
+	margin-bottom: 60px;
+}
+.box {
+	width: 400px;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 10px;
+	padding: 50px;
+}
+.lo {
+	background-color: #809dad;
+	color: white;
+	width: 300px;
+	margin-top: -20px;
+}
+.reg {
+	background-color: #bd9d86;
+	color: white;
+	width: 300px;
+	margin-top: 5px;
+}
+.reg:hover {
+	background-color: #809dad;
+	color: white;
+	width: 300px;
+	transition: all 1s;
+}
+.lo:hover {
+	background-color: #bd9d86;
+	color: white;
+	transition: all 1s;
+	text-decoration: none;
+}
+
+.txtb {
+	border-bottom: 2px solid #adadad;
+	position: relative;
+	margin: 30px 0;
+	width: 300px;
+
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.txtb input {
+	font-size: 15px;
+	color: #dfdfdf;
+	border: none;
+	width: 100%;
+	outline: none;
+	background: none;
+	padding: 0 5px;
+	height: 40px;
+}
+.log {
+	font-size: 15px;
+	margin-bottom: -5px;
+}
+.pesan {
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+.icon {
+	height: 200px;
+	width: 290px;
+	margin-right: 5px;
+}

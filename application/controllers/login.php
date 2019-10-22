@@ -11,12 +11,38 @@
             $this->load->helper('url');
             $this->load->helper('form');
             $this->load->library('session');
+            $this->load->library('form_validation');
         }
 
         public function index()
         {
             $data['title']="Login";
             $data['content'] = $this->load->view('login/login', $data, TRUE);
+            $this->load->view('login/index', $data);
+        }
+        public function register()
+        {
+            $data['title']="register";
+            $this->form_validation->set_rules('uname1', 'uname1', 'required');
+            $this->form_validation->set_rules('pwd1', 'pwd1', 'required');
+            if ($this->form_validation->run() == FALSE) {
+                $data['content'] = $this->load->view('login/register', $data, TRUE);
+            }else{
+                $this->login_model->register();
+                redirect('login/berhasil','refresh');
+            }
+            $this->load->view('login/index', $data);
+        }
+        public function berhasil()
+        {
+            $data['title']="berhasil";
+            $data['content'] = $this->load->view('login/berhasil', $data, TRUE);
+            $this->load->view('login/index', $data);
+        }
+        public function confirm()
+        {
+            $data['title']="Tunggu Sebentar";
+            $data['content'] = $this->load->view('login/berhasil', $data, TRUE);
             $this->load->view('login/index', $data);
         }
 
@@ -34,24 +60,23 @@
                         redirect('admin');
                     }elseif ($this->session->userdata('level')=="user") {
                         redirect('user');
+                    }elseif ($this->session->userdata('level')=="block") {
+                        redirect('login/confirm');
                     } else {
-                        $data['title']="Login";
-                        $data['pesan']="username dan password anda salah";
-                        $this->load->view('template/header_login', $data);
-                        $this->load->view('login/index', $data);
-                        $this->load->view('template/footer');
+                        redirect('login');
                     }
                 }
             } else {
                 
                 $data['title']="Login";
                 $data['pesan']="username dan password anda salah";
-                $this->load->view('template/header_login', $data);
+                $data['title']="Login";
+                $data['content'] = $this->load->view('login/login', $data, TRUE);
                 $this->load->view('login/index', $data);
-                $this->load->view('template/footer');
             }
             
         }
+        
         public function logout()
         {
             $this->session->sess_destroy();

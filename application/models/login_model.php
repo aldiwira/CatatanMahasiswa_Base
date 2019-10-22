@@ -19,6 +19,16 @@
                 return false;
             }
         }
+        public function register()
+        {
+            $data = array(
+                'username' => $this->input->post('uname1', true),
+                'password' => $this->input->post('pwd1', true),
+                'level' => 'block'
+            );
+    
+            $this->db->insert('user', $data);
+        }
     
     }
     

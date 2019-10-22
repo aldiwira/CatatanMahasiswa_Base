@@ -13,7 +13,8 @@
         $data = array(
             'judul' => $this->input->post('judul', true),
             'sumber' => $this->input->post('sumber', true),
-            'isi' => $this->input->post('content', true)
+            'isi' => $this->input->post('content', true),
+            'tanggal' => $this->input->post('tanggal', true)
         );
 
         $this->db->insert('quote', $data);
@@ -21,7 +22,7 @@
     public function hapus($id)
     {
         $this->db->where('id', $id);
-        $this->db->delete('qoute');
+        $this->db->delete('quote');
     }
     public function getbyid($id)
     {
@@ -40,7 +41,32 @@
     public function cariData($keyword)
     {
         $this->db->like('judul',$keyword);
+        $this->db->or_like('sumber', $keyword);
         return $this->db->get('quote')->result();
+    }
+    public function getUser()
+    {
+        $query = $this->db->order_by('id', 'DESC')->get('user');
+        return $query->result();
+    }
+    public function not()
+    {
+        $this->db->select_sum('level');
+        $this->db->where('level', 'block');
+        $query = $this->db->get('user')->result();
+    }
+    public function countUser()
+    {
+        $this->db->select('level');
+        $this->db->where('level', 'block');
+        $query = $this->db->get('user');
+        $result = 0;
+
+        foreach($query->result() as $row) {
+            $result = $result + 1;
+        }
+
+        return $result;
     }
  }
  

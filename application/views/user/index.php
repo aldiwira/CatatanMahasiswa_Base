@@ -12,10 +12,11 @@
         <link rel="stylesheet" href="<?= base_url() ?>assets/lib/bootstrap/css/bootstrap.min.css" />
         <style type="text/css">
         @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 		body{
 			background: #c7c7c7;
 			background-size: cover;
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Source Sans Pro', sans-serif;
 			color: white;
 			transition: all 5s;
         }
@@ -29,16 +30,20 @@
                     <h5 class="textHeader">Semua Tentang Curahan Hati Mahasiswa</h5>
                     <hr class="garis">
                     <div class="header m">
-                        <a class="active" href="#home">Home</a>
-                        <a href="">Saya</a>
-                        <a href="">Buat Artikel</a> 
-                        <a href="">Keluar</a> 
+                        <a class="active" href="<?= base_url(); ?>user">Home</a>
+                        <!-- <a href="">Buat Artikel</a>  -->
+                        <a href="<?= base_url(); ?>user/keluar">Keluar</a> 
                     </div>
                 </div>
                 <?= $content ?>
+                <hr class="garis">
+                <div class="bottom text-center">
+                    <img src="<?= base_url() ?>assets/img/icon5.png" alt="">
+                    <p>Coretan Mahasiswa Official Website</p>
+                    <p>Dikelola Oleh Mahasiswa Prodi Manajemen Informatika Politeknik Negeri Malang</p>		
+                </div>
             </div>
         </div>
-
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -49,5 +54,17 @@
         <script src="<?= base_url() ?>assets/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="<?= base_url() ?>assets/lib/jquery/jquery-3.3.1.slim.min.js"></script>
         <script src="<?= base_url() ?>assets/lib/jquery/popper.min.js"></script>
+        <script src="<?= base_url() ?>assets\lib\ckeditor/ckeditor.js"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/12.4.0/classic/ckeditor.js"></script>
+        <script>
+            ClassicEditor
+                    .create( document.querySelector( '#editor' ) )
+                    .then( editor => {
+                            console.log( editor );
+                    } )
+                    .catch( error => {
+                            console.error( error );
+                    } );
+        </script>
     </body>
 </html>

@@ -7,16 +7,16 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
-                        <?= $barang['nama_barang']; ?>
+                        <?= $barang['judul']; ?>
                     </h5>
                     <p class="card-text">
-                    <?= $barang['jenis_barang']; ?>
+                    <?= $barang['sumber']; ?>
                     </p>
                     <p class="card-text">
-                    <?= $barang['harga']; ?>
+                    <?= $barang['tanggal']; ?>
                     </p>
                     <p class="card-text">
-                    <?= $barang['stok']; ?>
+                    <?= $barang['isi']; ?>
                     </p>
                     <a href="<?= base_url(); ?>admin" class="btn btn-primary">back home</a>
                 </div>
