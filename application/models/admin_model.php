@@ -49,12 +49,6 @@
         $query = $this->db->order_by('id', 'DESC')->get('user');
         return $query->result();
     }
-    public function not()
-    {
-        $this->db->select_sum('level');
-        $this->db->where('level', 'block');
-        $query = $this->db->get('user')->result();
-    }
     public function countUser()
     {
         $this->db->select('level');
@@ -67,6 +61,35 @@
         }
 
         return $result;
+    }
+    public function tambahUser()
+    {
+        $data = array(
+            'username' => $this->input->post('username', true),
+            'password' => $this->input->post('password', true),
+            'level' => $this->input->post('level', true)
+        );
+
+        $this->db->insert('user', $data);
+    }
+    public function hapusUser($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('user');
+    }
+    public function getbyiduser($id)
+    {
+        return $this->db->get_where('user', array('id' => $id))->row_array();
+    }
+    public function ubahDataUser($id)
+    {
+       $data = array(
+            'username' => $this->input->post('username', true),
+            'password' => $this->input->post('password', true),
+            'level' => $this->input->post('level', true)
+       );
+       $this->db->where('id', $id);
+       $this->db->update('user', $data);
     }
  }
  

@@ -1,6 +1,6 @@
 <div class="container">
     <?php if ($this->session->flashdata('flash-data')) { ?>
-        <div class="alert alert-success">
+        <div class="alert alert-success mt-3">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
             <strong>Success!</strong> <?= $this->session->flashdata('flash-data'); ?>
         </div>
@@ -9,7 +9,7 @@
         
         <h2>Daftar User</h2>
             <div class="col-md-6 my-2">
-                <a href="<?= base_url(); ?>mahasiswa/tambah" class="btn btn-primary">Tambah User</a>
+                <a href="<?= base_url(); ?>admin/adduser" class="btn btn-primary">Tambah User</a>
             </div>
     </div>
     <div class="mx-auto d-block mt-5">
@@ -17,7 +17,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Username</th>
                     <th scope="col">Password</th>
                     <th scope="col">level</th>
@@ -27,15 +26,14 @@
                 <?php foreach ($user as $mhs){?>
                     <tbody>
                         <tr>
-                            <th scope="row"><?php echo $mhs->id ?></th>
                             <td><?php echo $mhs->username ?></td>
                             <td><?php echo $mhs->password ?></td>
                             <td><?php echo $mhs->level ?></td>
                             <td>
-                                <a href="<?= base_url(); ?>admin/hapus_user/<?= $mhs->id; ?>" 
+                                <a href="<?= base_url(); ?>admin/hapusUser/<?= $mhs->id; ?>" 
                                 class="badge badge-danger"
                                 onclick="return confirm('Yakin ingin menghapus data ini');">Hapus</a>
-                                <a href="<?= base_url(); ?>admin/edit_user/<?= $mhs->id; ?>" 
+                                <a href="<?= base_url(); ?>admin/editUser/<?= $mhs->id; ?>" 
                                 class="badge badge-success">Edit</a>
                             </td>
                         </tr>

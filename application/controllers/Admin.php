@@ -30,7 +30,7 @@
         }
         public function tambah()
         {
-            $data['title']="Tambah User";
+            $data['title']="Tambah Artikel";
             $this->form_validation->set_rules('judul', 'judul', 'required');
             $this->form_validation->set_rules('sumber', 'sumber', 'required');
             $this->form_validation->set_rules('content', 'content', 'required');
@@ -84,6 +84,47 @@
             $data['notif']=$this->admin_model->countUser();
             $data['content'] = $this->load->view('admin/user', $data, TRUE);
             $this->load->view('admin/index', $data); 
+        }
+        public function adduser()
+        {
+            $data['title']="Tambah User";
+            $data['level']=['admin','user','block'];
+            $data['notif']=$this->admin_model->countUser();
+            $this->form_validation->set_rules('username', 'username', 'required');
+            $this->form_validation->set_rules('password', 'password', 'required');
+            $this->form_validation->set_rules('level', 'level', 'required');
+            if ($this->form_validation->run() == FALSE) {
+                $data['content'] = $this->load->view('admin/adduser', $data, TRUE);
+            }else{
+                $this->admin_model->tambahUser();
+                $this->session->set_flashdata('flash-data', 'User sudah Ditambah');
+                redirect('admin/user','refresh');
+            }
+            $this->load->view('admin/index', $data);
+        }
+        public function hapusUser($id)
+        {
+            $this->admin_model->hapusUser($id);
+            $this->session->set_flashdata('flash-data', 'user sudah dihapus');
+            redirect('admin/user','refresh');
+        }
+        public function editUser($id)
+        {
+            $data['title']="Edit User";
+            $data['level']=['admin','user','block'];
+            $data['user']=$this->admin_model->getbyiduser($id);
+            $data['notif']=$this->admin_model->countUser();
+            $this->form_validation->set_rules('username', 'username', 'required');
+            $this->form_validation->set_rules('password', 'password', 'required');
+            $this->form_validation->set_rules('level', 'level', 'required');
+            if ($this->form_validation->run() == FALSE) {
+                $data['content'] = $this->load->view('admin/edituser', $data, TRUE);
+            }else{
+                $this->admin_model->ubahDataUser($id);
+                $this->session->set_flashdata('flash_data','User sudah diedit');
+                redirect('admin/user','refresh');
+            }     
+            $this->load->view('admin/index', $data);
         }
     }
     
